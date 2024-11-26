@@ -23,21 +23,24 @@
     
 // Objects:  {key: value}
 
-    // let student = {
-    //   name: "ravi",
-    //   age: 25,
-    //   college: "xyz",
-    //   dept: "abc",
-    //   mobile: 9876543211,
-    //   favColor: ["black", "red", "blue"],
-    //   address: {
-    //     dno: 2,
-    //     street: "laksmi street",
-    //     landmark: "watertank"
-    //   }
-    // };
+    let student = {
+      name: "ravi",
+      age: 25,
+      _college: "xyz",
+      _dept: "abc",
+      mobile: 9876543211,
+      favColor: ["black", "red", "blue"],
+      address: {
+        dno: 2,
+        street: "laksmi street",
+        landmark: "watertank"
+      }
+    };
 
-    // console.log(student.favColor[1]);
+    student.email = "ravi@gmail.com"
+
+    console.log(student);
+
     // console.log(student.address.landmark);
     
 // Object Destructuring: (Unpacking)
@@ -59,3 +62,17 @@
     // console.log(arr);
     // console.log(arr[1]);
     // console.log(arr[3]);
+
+
+    // var cases = {
+    //   afshin: function () {
+    //     alert("hey");
+    //   },
+    //   _default: function () {
+    //     alert("default");
+    //   },
+    // };
+
+    // cases.larry = cases.saeed = cases.afshin;
+
+    // cases.afsh ? cases.afshin() : cases._default();
