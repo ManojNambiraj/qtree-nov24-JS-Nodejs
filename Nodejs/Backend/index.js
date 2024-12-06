@@ -1,15 +1,24 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const app = express();
+const dotenv = require("dotenv").config();
+const db = require("./config/db");
+const cors = require("cors");
+const userRouter = require("./router/userRouter");
 
-app.use(express.json())
+(() => {
+  app.use(express.json());
 
-app.get("/demo", (req, res) => {
-    res.send("Hello, Good morning")
-})
+  app.use(
+    cors({
+      origin: "*",
+    })
+  );
 
-app.listen(8081, () => {
-    console.log(`Server running in ${8081}`);
-})
+  db(process.env.MONGO_URL);
 
-// CRUD   ->     Create  Read  Update  Delete
-// HTTP Method:  POST    GET    PUT    DELETE
+  app.use("/", userRouter);
+})();
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server running in ${process.env.PORT}`);
+});
